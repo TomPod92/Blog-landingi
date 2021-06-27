@@ -17,3 +17,8 @@ export interface Comment {
     email: string;
     body: string;
 }
+
+export interface Like {
+    postId: number;
+    userId: string;
+}

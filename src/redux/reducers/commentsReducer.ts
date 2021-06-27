@@ -54,6 +54,8 @@ const commentsReducer = (
                 loading: false,
                 comments: [],
             };
+        default:
+            return state;
     }
 };
 
