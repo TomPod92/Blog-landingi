@@ -1,0 +1,10 @@
+@import "../../mixins.scss";
+
+.footer {
+    @include PAGE();
+    position: absolute;
+    bottom: 0;
+    padding: 1em 2em;
+    background: rgba(0, 0, 0, 0.03);
+    width: 100%;
+}

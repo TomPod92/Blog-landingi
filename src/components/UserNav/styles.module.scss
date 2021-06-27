@@ -1,0 +1,14 @@
+@import "../../mixins.scss";
+
+.usernav {
+    display: flex;
+    align-items: center;
+
+    &__user {
+        margin-right: 1em;
+    }
+
+    &__button {
+        @include BUTTON();
+    }
+}

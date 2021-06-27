@@ -1,5 +1,6 @@
 import { UserActionType } from "../action-types/userActionTypes";
 import { UserActions } from "../actions/userActions";
+import { Reducer } from "redux";
 
 const initialState = {
     user: {
@@ -21,10 +22,14 @@ interface State {
     error: string;
 }
 
-const userReducer = (state: State = initialState, action: UserActions) => {
+const userReducer: Reducer<State, UserActions> = (
+    state = initialState,
+    action
+) => {
     switch (action.type) {
         case UserActionType.LOGIN_USER_REQUEST:
             return {
+                user: state.user,
                 loading: true,
                 error: "",
             };
@@ -40,24 +45,25 @@ const userReducer = (state: State = initialState, action: UserActions) => {
             };
         case UserActionType.LOGIN_USER_ERROR:
             return {
-                user: {},
+                user: { id: "", mail: "", name: "" },
                 loading: false,
                 error: action.payload,
             };
         case UserActionType.LOGOUT_USER_REQUEST:
             return {
+                user: state.user,
                 loading: true,
                 error: "",
             };
         case UserActionType.LOGOUT_USER_SUCCESS:
             return {
-                user: {},
+                user: { id: "", mail: "", name: "" },
                 loading: false,
                 error: "",
             };
         case UserActionType.LOGOUT_USER_ERROR:
             return {
-                user: {},
+                user: { id: "", mail: "", name: "" },
                 loading: false,
                 error: action.payload,
             };

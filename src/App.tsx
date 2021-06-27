@@ -1,10 +1,32 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import PostsListPage from "./pages/PostsListPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import Footer from "./components/Footer/Footer";
+import SinglePostPage from "./pages/SinglePostPage";
 
 const App = () => {
     return (
-        <div className="App">
-            <Header />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+
+                <Switch>
+                    <Route path="/" component={HomePage} exact />
+                    <Route
+                        path="/posts/:postId"
+                        component={SinglePostPage}
+                        exact
+                    />
+                    <Route path="/posts" component={PostsListPage} exact />
+
+                    <Route path="/about" component={AboutPage} exact />
+                </Switch>
+
+                <Footer />
+            </div>
+        </BrowserRouter>
     );
 };
 

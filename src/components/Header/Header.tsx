@@ -1,21 +1,14 @@
-import React from "react";
-import { User } from "../../types";
+import Navigation from "../Navigation/Navigation";
+import UserNav from "../UserNav";
+import styles from "./styles.module.scss";
 
-interface Props {
-    user: User;
-    login: () => void;
-    logout: () => void;
-}
-
-const Header = ({ user, login, logout }: Props) => {
-    const test = () => login();
-    const test1 = () => logout();
+const Header = () => {
     return (
-        <>
-            <header>My blog</header>
-            <button onClick={test}>Login</button>
-            <button onClick={test1}>Logout</button>
-        </>
+        <header className={styles["header"]}>
+            <span className={styles["header__logo"]}>My Blog</span>
+            <Navigation />
+            <UserNav />
+        </header>
     );
 };
 

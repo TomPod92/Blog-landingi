@@ -1,6 +1,7 @@
 import { Comment } from "../../types";
 import { CommentsActionType } from "../action-types/commentsActionTypes";
 import { CommentsActions } from "../actions/commentsActions";
+import { Reducer } from "redux";
 
 const initialState = {
     comments: [],
@@ -14,9 +15,9 @@ interface State {
     error: string;
 }
 
-const commentsReducer = (
-    state: State = initialState,
-    action: CommentsActions
+const commentsReducer: Reducer<State, CommentsActions> = (
+    state = initialState,
+    action
 ) => {
     switch (action.type) {
         case CommentsActionType.GET_COMMENTS_REQUEST:
@@ -28,7 +29,7 @@ const commentsReducer = (
         case CommentsActionType.GET_COMMENTS_SUCCESS:
             return {
                 comments: action.payload,
-                error: false,
+                error: "",
                 loading: false,
             };
         case CommentsActionType.GET_COMMENTS_ERROR:
@@ -39,6 +40,7 @@ const commentsReducer = (
             };
         case CommentsActionType.ADD_COMMENT_REQUEST:
             return {
+                comments: state.comments,
                 error: "",
                 loading: true,
             };

@@ -1,6 +1,7 @@
 import { PostsActionType } from "../action-types/postsActionTypes";
 import { Post } from "../../types";
 import { PostsActions } from "../actions/postsActions";
+import { Reducer } from "redux";
 
 const initialState = {
     posts: [],
@@ -14,7 +15,10 @@ interface State {
     error: string;
 }
 
-const postsReducer = (state: State = initialState, action: PostsActions) => {
+const postsReducer: Reducer<State, PostsActions> = (
+    state = initialState,
+    action
+) => {
     switch (action.type) {
         case PostsActionType.GET_POSTS_REQUEST:
             return {
