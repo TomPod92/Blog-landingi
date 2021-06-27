@@ -54,6 +54,8 @@ const likesReducer = (state: State = initialState, action: LikesActions) => {
                 error: action.payload,
                 loading: false,
             };
+        default:
+            return state;
     }
 };
 
