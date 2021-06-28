@@ -1,4 +1,5 @@
 import { Comment } from "../../types";
+import styles from "./styles.module.scss";
 
 interface Props {
     comment: Comment;
@@ -6,9 +7,9 @@ interface Props {
 
 const SingleComment = ({ comment }: Props) => {
     return (
-        <div>
-            <p>{comment.body}</p>
-            <p>{comment.email}</p>
+        <div className={styles["single-comment"]}>
+            <p className={styles["single-comment__body"]}>{comment.body}</p>
+            <p className={styles["single-comment__author"]}>{comment.email}</p>
         </div>
     );
 };

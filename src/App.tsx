@@ -5,6 +5,7 @@ import PostsListPage from "./pages/PostsListPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import Footer from "./components/Footer/Footer";
 import SinglePostPage from "./pages/SinglePostPage";
+import MobileNav from "./components/MobileNav/MobileNav";
 
 const App = () => {
     return (
@@ -23,6 +24,8 @@ const App = () => {
 
                     <Route path="/about" component={AboutPage} exact />
                 </Switch>
+
+                <MobileNav />
 
                 <Footer />
             </div>

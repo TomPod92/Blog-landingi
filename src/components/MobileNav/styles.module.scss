@@ -1,0 +1,37 @@
+.mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--color-grey-light);
+    box-shadow: 0 1em 2em var(--color-grey-dark-opacity);
+    list-style: none;
+
+    @media (min-width: 650px) {
+        display: none;
+    }
+
+    &__item {
+        flex: 1;
+    }
+
+    &__item > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em 1em;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__item--active {
+        background: var(--color-grey-medium);
+    }
+
+    &__item > a > svg {
+        width: 2em;
+        height: 2em;
+        color: var(--color-black);
+    }
+}

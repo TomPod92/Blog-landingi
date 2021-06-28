@@ -1,12 +1,15 @@
 .header {
+    height: var(--header-height);
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1em 2em;
-    margin-bottom: 2em;
-    background: rgba(0, 0, 0, 0.03);
+    margin-bottom: var(--header-margin);
+    background: var(--color-grey-light);
+    box-shadow: 0 1em 2em var(--color-grey-dark-opacity);
+    z-index: 2;
 
     &__logo {
         font-size: 2em;

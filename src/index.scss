@@ -1,3 +1,17 @@
+:root {
+    --color-white: rgb(250, 250, 250);
+    --color-grey-light: rgb(245, 245, 245);
+    --color-grey-medium: rgb(220, 220, 220);
+    --color-grey-dark: rgb(185, 185, 185);
+    --color-grey-dark-opacity: rgba(185, 185, 185, 0.5);
+    --color-yellow: rgb(238, 250, 186);
+    --color-black: rgb(45, 45, 45);
+
+    --header-height: 5em;
+    --footer-height: 3em;
+    --header-margin: 3em;
+}
+
 *,
 *::after,
 *::before {

@@ -1,10 +1,15 @@
 @import "../../mixins.scss";
 
 .footer {
-    @include PAGE();
-    position: absolute;
+    height: var(--footer-height);
+    position: sticky;
     bottom: 0;
     padding: 1em 2em;
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--color-grey-light);
     width: 100%;
+    box-shadow: 0 -1em 2em var(--color-grey-dark-opacity);
+
+    @media (max-width: 650px) {
+        display: none;
+    }
 }

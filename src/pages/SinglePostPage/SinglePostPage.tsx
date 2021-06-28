@@ -3,6 +3,10 @@ import { Comment, Post, Like, User } from "../../types";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import SingleComment from "../../components/SingleComment/SingleComment";
+import styles from "./styles.module.scss";
+import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
+import { ReactComponent as LikeIcon } from "../../assets/icons/like.svg";
+import { ReactComponent as UnlikeIcon } from "../../assets/icons/unlike.svg";
 
 interface Props {
     user: User;
@@ -47,7 +51,7 @@ const SinglePost = ({
 
     const handleGoBack = () => history.goBack();
 
-    const handleSetCommentText = (e: React.ChangeEvent<HTMLInputElement>) =>
+    const handleSetCommentText = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
         setCommentText(e.target.value);
 
     const handleAddComment = () => {
@@ -75,28 +79,59 @@ const SinglePost = ({
     };
 
     return (
-        <div>
+        <div className={styles["single-post-page"]}>
             {post && (
                 <>
-                    <div></div>
-                    <h2>{post.title}</h2>
-                    <p>{post.body}</p>
-                    {comments.map((current) => (
-                        <SingleComment comment={current} key={current.id} />
-                    ))}
+                    <div className={styles["single-post-page__photo"]}>
+                        {user.id ? (
+                            <button
+                                className={
+                                    styles["single-post-page__like-button"]
+                                }
+                                onClick={() => handleToggleLike(post.id)}
+                            >
+                                {yourLike ? (
+                                    <>
+                                        <UnlikeIcon /> Unlike
+                                    </>
+                                ) : (
+                                    <>
+                                        <LikeIcon /> Like
+                                    </>
+                                )}
+                            </button>
+                        ) : (
+                            <p
+                                className={
+                                    styles["single-post-page__like-text"]
+                                }
+                            >
+                                Log in to be able to like posts
+                            </p>
+                        )}
+                    </div>
+
+                    <h2 className={styles["single-post-page__title"]}>
+                        {post.title}
+                    </h2>
+
+                    <p className={styles["single-post-page__body"]}>
+                        {post.body}
+                    </p>
+
+                    <div className={styles["single-post-page__comments"]}>
+                        {comments.map((current) => (
+                            <SingleComment comment={current} key={current.id} />
+                        ))}
+                    </div>
 
                     {user.id ? (
-                        <button onClick={() => handleToggleLike(post.id)}>
-                            {yourLike ? "Unlike" : "Like"}
-                        </button>
-                    ) : (
-                        <p>Log in to be able to like posts</p>
-                    )}
-
-                    {user.id ? (
-                        <>
-                            <input
-                                type="text"
+                        <div
+                            className={
+                                styles["single-post-page__add-comment-form"]
+                            }
+                        >
+                            <textarea
                                 value={commentText}
                                 onChange={(e) => handleSetCommentText(e)}
                             />
@@ -106,13 +141,25 @@ const SinglePost = ({
                             >
                                 Add comment
                             </button>
-                        </>
+                        </div>
                     ) : (
-                        <p>Log in to be able to add comments</p>
+                        <p
+                            className={
+                                styles["single-post-page__add-comment-text"]
+                            }
+                        >
+                            Log in to be able to add comments
+                        </p>
                     )}
                 </>
             )}
-            <button onClick={handleGoBack}>Go back</button>
+            <button
+                className={styles["single-post-page__go-back-button"]}
+                onClick={handleGoBack}
+            >
+                <BackIcon />
+                Go back
+            </button>
         </div>
     );
 };

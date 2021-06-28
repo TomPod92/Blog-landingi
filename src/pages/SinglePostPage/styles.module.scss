@@ -1,0 +1,98 @@
+@import "../../mixins.scss";
+
+.single-post-page {
+    @include PAGE();
+    position: relative;
+    margin-bottom: calc(var(--footer-height) + 3em);
+
+    &__photo {
+        position: relative;
+        height: 16em;
+        margin-bottom: 2em;
+        background: var(--color-yellow);
+    }
+
+    &__like-button {
+        @include BUTTON();
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: -1em;
+        right: -1em;
+        cursor: pointer;
+        z-index: 1;
+
+        & > svg {
+            width: 1em;
+            height: 1em;
+            margin-right: 0.5em;
+        }
+    }
+
+    &__like-text {
+        position: absolute;
+        bottom: -1.5em;
+        right: 0;
+        font-size: 0.6em;
+    }
+
+    &__title {
+        margin-bottom: 1em;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__body {
+        line-height: 1.2em;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        border-bottom: 1px solid var(--color-grey-medium);
+    }
+
+    &__comments {
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        border-bottom: 1px solid var(--color-grey-medium);
+    }
+
+    &__add-comment-form {
+        display: flex;
+        flex-direction: column;
+
+        & > textarea {
+            height: 10em;
+            padding: 1em;
+            margin-bottom: 1em;
+            resize: none;
+            border: 1px solid var(--color-grey-dark);
+        }
+
+        & > button {
+            @include BUTTON();
+            color: black;
+            align-self: flex-end;
+        }
+    }
+
+    &__add-comment-text {
+    }
+
+    &__go-back-button {
+        @include BUTTON();
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: -1em;
+        left: -3em;
+        cursor: pointer;
+        z-index: 1;
+
+        & > svg {
+            margin-right: 0.5em;
+            width: 1em;
+            height: 1em;
+        }
+    }
+}

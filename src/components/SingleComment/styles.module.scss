@@ -1,0 +1,17 @@
+.single-comment {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    background: var(--color-white);
+    font-size: 0.9em;
+
+    &__body {
+        margin-bottom: 0.5em;
+    }
+
+    &__author {
+        display: block;
+        text-align: right;
+        padding-right: 1em;
+        font-size: 0.6em;
+    }
+}

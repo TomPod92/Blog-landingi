@@ -1,21 +1,31 @@
 @import "../../mixins.scss";
 
 .post-overview {
-    border: 1px solid rgb(214, 214, 214);
+    border: 1px solid var(--color-grey-medium);
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
+
+    @media (min-width: 500px) {
+        width: 16em;
+    }
 
     &__thumbnail {
-        background-color: rgb(238, 250, 186);
-        height: 8em;
+        background-color: var(--color-yellow);
+        height: 12em;
         width: 100%;
         margin-bottom: 0.5em;
     }
 
-    &__title {
-        display: block;
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         flex: 1;
+        padding: 1em;
+    }
+
+    &__title {
         margin-bottom: 3em;
 
         &::first-letter {
@@ -23,20 +33,10 @@
         }
     }
 
-    &__details {
-        display: flex;
-        align-content: space-between;
-        flex: 1;
-        padding: 1em;
-    }
-
     &__link {
+        @include BUTTON();
         align-self: flex-end;
         color: black;
         text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }
