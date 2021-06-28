@@ -6,6 +6,7 @@ import {
     getComments,
     addComment,
 } from "../../redux/action-creators/commentsActionCreators";
+import { getSinglePost } from "../../redux/action-creators/singlePostsActionCreators";
 import { like, unlike } from "../../redux/action-creators/likesActionCreators";
 
 const mapStateToProps = (state: State, props: any) => {
@@ -19,9 +20,9 @@ const mapStateToProps = (state: State, props: any) => {
 
     return {
         user: state.user.user,
-        post: state.posts.posts.find(
-            (current) => current.id === parseInt(props.match.params.postId)
-        ),
+        post: state.singlePost.post,
+        postLoading: state.singlePost.loading,
+        postError: state.singlePost.error,
         comments: state.comments.comments,
         commentsLoading: state.comments.loading,
         commentsError: state.comments.error,
@@ -32,6 +33,9 @@ const mapStateToProps = (state: State, props: any) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-    bindActionCreators({ getComments, addComment, like, unlike }, dispatch);
+    bindActionCreators(
+        { getSinglePost, getComments, addComment, like, unlike },
+        dispatch
+    );
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);

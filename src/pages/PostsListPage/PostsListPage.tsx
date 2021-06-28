@@ -18,7 +18,9 @@ const PostsListPage = ({ posts, loading, error, getPosts }: Props) => {
     return (
         <div className={styles["posts-list-page"]}>
             {loading ? (
-                <div>Loading</div>
+                <div className={styles["posts-list-page__loading"]}>
+                    Loading...
+                </div>
             ) : (
                 <ul className={styles["posts-list-page__list"]}>
                     {posts.map((current) => (

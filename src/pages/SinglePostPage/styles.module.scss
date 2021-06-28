@@ -5,6 +5,10 @@
     position: relative;
     margin-bottom: calc(var(--footer-height) + 3em);
 
+    &__loading {
+        font-size: 2em;
+    }
+
     &__photo {
         position: relative;
         height: 16em;

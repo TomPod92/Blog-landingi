@@ -11,9 +11,12 @@ import { ReactComponent as UnlikeIcon } from "../../assets/icons/unlike.svg";
 interface Props {
     user: User;
     post?: Post;
+    postLoading: boolean;
+    postError: string;
     comments: Comment[];
     commentsLoading: boolean;
     commentsError: string;
+    getSinglePost: (postId: number) => void;
     getComments: (postId: number) => void;
     yourLike: boolean;
     likesLoading: boolean;
@@ -26,9 +29,12 @@ interface Props {
 const SinglePost = ({
     user,
     post,
+    postLoading,
+    postError,
     comments,
     commentsLoading,
     commentsError,
+    getSinglePost,
     getComments,
     yourLike,
     like,
@@ -48,6 +54,10 @@ const SinglePost = ({
     useEffect(() => {
         postId && getComments(parseInt(postId));
     }, [getComments, postId]);
+
+    useEffect(() => {
+        postId && getSinglePost(parseInt(postId));
+    }, [getSinglePost, postId]);
 
     const handleGoBack = () => history.goBack();
 
@@ -77,6 +87,16 @@ const SinglePost = ({
         };
         yourLike ? unlike(likeObj) : like(likeObj);
     };
+
+    if (postLoading) {
+        return (
+            <div className={styles["single-post-page"]}>
+                <p className={styles["single-post-page__loading"]}>
+                    Loading...
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className={styles["single-post-page"]}>

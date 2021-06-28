@@ -3,6 +3,12 @@
 .posts-list-page {
     @include PAGE();
 
+    &__loading {
+        width: 100%;
+        height: 100%;
+        font-size: 2em;
+    }
+
     &__list {
         display: flex;
         gap: 1em;
