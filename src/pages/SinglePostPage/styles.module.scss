@@ -22,9 +22,13 @@
         align-items: center;
         position: absolute;
         bottom: -1em;
-        right: -1em;
+        right: 0;
         cursor: pointer;
         z-index: 1;
+
+        @media (min-width: 650px) {
+            right: -1em;
+        }
 
         & > svg {
             width: 1em;
@@ -55,7 +59,12 @@
         border-bottom: 1px solid var(--color-grey-medium);
     }
 
-    &__comments {
+    &__comments-title {
+        font-size: 0.8em;
+        margin-bottom: 0.5em;
+    }
+
+    &__comments-list {
         padding-bottom: 2em;
         margin-bottom: 2em;
         border-bottom: 1px solid var(--color-grey-medium);
@@ -80,18 +89,19 @@
         }
     }
 
-    &__add-comment-text {
-    }
-
     &__go-back-button {
         @include BUTTON();
         display: flex;
         align-items: center;
         position: absolute;
         top: -1em;
-        left: -3em;
+        left: 0;
         cursor: pointer;
         z-index: 1;
+
+        @media (min-width: 650px) {
+            left: -3em;
+        }
 
         & > svg {
             margin-right: 0.5em;

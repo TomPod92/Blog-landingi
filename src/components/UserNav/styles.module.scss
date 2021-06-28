@@ -5,7 +5,12 @@
     align-items: center;
 
     &__user {
-        margin-right: 1em;
+        font-size: 0.8em;
+        margin-right: 0.5em;
+
+        @media (min-width: 650px) {
+            margin-right: 1em;
+        }
     }
 
     &__button {

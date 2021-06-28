@@ -28,7 +28,7 @@ const commentsReducer: Reducer<State, CommentsActions> = (
             };
         case CommentsActionType.GET_COMMENTS_SUCCESS:
             return {
-                comments: action.payload,
+                comments: [...state.comments, ...action.payload],
                 error: "",
                 loading: false,
             };

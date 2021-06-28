@@ -5,13 +5,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em 2em;
+    padding: 0.5em 1em;
     margin-bottom: var(--header-margin);
     background: var(--color-grey-light);
     box-shadow: 0 1em 2em var(--color-grey-dark-opacity);
     z-index: 2;
 
+    @media (min-width: 650px) {
+        padding: 1em 2em;
+    }
+
     &__logo {
-        font-size: 2em;
+        font-size: 1.5em;
+        color: black;
+        text-decoration: none;
     }
 }

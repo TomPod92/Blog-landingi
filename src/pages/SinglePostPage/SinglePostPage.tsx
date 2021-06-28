@@ -139,7 +139,17 @@ const SinglePost = ({
                         {post.body}
                     </p>
 
-                    <div className={styles["single-post-page__comments"]}>
+                    {comments.length > 0 && (
+                        <h3
+                            className={
+                                styles["single-post-page__comments-title"]
+                            }
+                        >
+                            Comments:
+                        </h3>
+                    )}
+
+                    <div className={styles["single-post-page__comments-list"]}>
                         {comments.map((current) => (
                             <SingleComment comment={current} key={current.id} />
                         ))}
